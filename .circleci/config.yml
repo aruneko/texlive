@@ -20,6 +20,8 @@ jobs:
 workflows:
   version: 2
   build_and_push_docker_image:
+    jobs:
+      - build_and_push_image
     triggers:
       - schedule:
           cron: "0 3 * * *"
@@ -27,5 +29,3 @@ workflows:
             branches:
               only:
                 - master
-    jobs:
-      - build_and_push_image
