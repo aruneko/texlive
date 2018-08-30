@@ -33,6 +33,7 @@ RUN apt update \
  && cd ../ \
  && rm -rf install-tl.tar.gz install-tl \
  && apt purge -y wget xz-utils libfontconfig-dev \
+ && apt autoremove -y \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
