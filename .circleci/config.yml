@@ -26,8 +26,5 @@ workflows:
         triggers:
             - schedule:
                 cron: "0 3 * * *"
-                filters:
-                    branches:
-                        only: master
         jobs:
             - build_and_push_image
