@@ -24,7 +24,7 @@ workflows:
     version: 2
     build_and_push_docker_image:
         triggers:
-            - schedules:
+            - schedule:
                 cron: "0 3 * * *"
                 filters:
                     branches:
