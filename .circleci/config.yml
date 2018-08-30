@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-    build:
+    build_and_push_docker_image:
         docker:
             - image: docker:latest
         steps:
