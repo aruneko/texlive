@@ -30,4 +30,4 @@ workflows:
                     branches:
                         only: master
         jobs:
-            - build_and_push:
+            - build_and_push
