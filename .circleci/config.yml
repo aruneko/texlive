@@ -22,10 +22,3 @@ workflows:
   build_and_push_docker_image:
     jobs:
       - build_and_push_image
-    triggers:
-      - schedule:
-          cron: "0 3 * * *"
-          filters:
-            branches:
-              only:
-                - master
