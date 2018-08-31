@@ -38,7 +38,7 @@ RUN apt update \
       /usr/local/texlive/texmf-local/fonts/opentype/google/notosanscjk/ \
  && ln -s /usr/share/fonts/opentype/noto/NotoSerifCJK-*.ttc \
       /usr/local/texlive/texmf-local/fonts/opentype/google/notoserifcjk/ \
- && mktexlsr
+ && mktexlsr \
  && cd ../ \
  && rm -rf install-tl.tar.gz install-tl \
  && apt purge -y wget xz-utils libfontconfig-dev \
