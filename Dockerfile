@@ -30,6 +30,15 @@ RUN apt update \
       collection-langjapanese \
       latexmk \
       xetex \
+ && mkdir -p \
+      /usr/local/texlive/texmf-local/fonts/opentype/google/notosanscjk/ \
+ && mkdir -p \
+      /usr/local/texlive/texmf-local/fonts/opentype/google/notoserifcjk/ \
+ && ln -s /usr/share/fonts/opentype/noto/NotoSansCJK-*.ttc \
+      /usr/local/texlive/texmf-local/fonts/opentype/google/notosanscjk/ \
+ && ln -s /usr/share/fonts/opentype/noto/NotoSerifCJK-*.ttc \
+      /usr/local/texlive/texmf-local/fonts/opentype/google/notoserifcjk/ \
+ && mktexlsr
  && cd ../ \
  && rm -rf install-tl.tar.gz install-tl \
  && apt purge -y wget xz-utils libfontconfig-dev \
