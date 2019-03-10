@@ -5,7 +5,7 @@ ENV PATH $PATH:/usr/local/texlive/2018/bin/x86_64-linux
 RUN apt update \
  && apt install -y \
       perl \
-      python3-pygments \
+      python-pygments \
       wget \
       xz-utils \
       fonts-noto-cjk \
