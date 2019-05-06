@@ -1,6 +1,6 @@
-FROM ubuntu:18.04
+FROM ubuntu:19.04
 
-ENV PATH $PATH:/usr/local/texlive/2018/bin/x86_64-linux
+ENV PATH $PATH:/usr/local/texlive/2019/bin/x86_64-linux
 
 RUN apt update \
  && apt install -y \
