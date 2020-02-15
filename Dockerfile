@@ -1,11 +1,11 @@
-FROM ubuntu:19.04
+FROM debian:buster-slim
 
 ENV PATH $PATH:/usr/local/texlive/2019/bin/x86_64-linux
 
 RUN apt update \
  && apt install -y \
       perl \
-      python-pygments \
+      python3-pygments \
       wget \
       xz-utils \
       fonts-noto-cjk \
@@ -44,7 +44,6 @@ RUN apt update \
  && rm -rf install-tl.tar.gz install-tl \
  && apt purge -y wget xz-utils libfontconfig-dev \
  && apt autoremove -y \
- && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /texsrc
