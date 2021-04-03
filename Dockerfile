@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 
-ENV PATH $PATH:/usr/local/texlive/2020/bin/x86_64-linux
+ENV PATH $PATH:/usr/local/texlive/2021/bin/x86_64-linux
 
 RUN apt update \
  && apt install -y \
