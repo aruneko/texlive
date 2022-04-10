@@ -1,6 +1,7 @@
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
-ENV PATH $PATH:/usr/local/texlive/2021/bin/x86_64-linux
+ENV TEXLIVE_VERSION 2022
+ENV PATH $PATH:/usr/local/texlive/${TEXLIVE_VERSION}/bin/x86_64-linux
 
 RUN apt update \
  && apt install -y \
