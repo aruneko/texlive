@@ -3,11 +3,11 @@ version: 2
 jobs:
   build_and_push_image:
     docker:
-      - image: docker:20.10.16
+      - image: docker:20.10.14
     steps:
       - checkout
       - setup_remote_docker:
-          version: 20.10.16
+          version: 20.10.14
       - run:
           name: Login to Docker Hub
           command: docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
