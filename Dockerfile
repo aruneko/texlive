@@ -1,24 +1,30 @@
 FROM debian:bullseye-slim
 
-ENV TEXLIVE_VERSION 2022
+ENV TEXLIVE_VERSION 2023
 ENV PATH $PATH:/usr/local/texlive/${TEXLIVE_VERSION}/bin/x86_64-linux
+
+WORKDIR /tmp
 
 RUN apt update \
  && apt install -y \
-      perl \
+    perl \
       python3-pygments \
-      wget \
-      xz-utils \
       fonts-noto-cjk \
       fonts-noto-cjk-extra \
-      libfontconfig-dev \
       ghostscript \
- && cd /tmp \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN apt update \
+ && apt install -y \
+      libfontconfig-dev \
+      wget \
+      xz-utils \
  && wget -nv -O install-tl.tar.gz \
-      http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
+    https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
  && mkdir install-tl \
  && tar -xzf install-tl.tar.gz -C install-tl --strip-components=1 \
- && cd install-tl/ \
+ && cd install-tl \
  && printf "%s\n" \
       "selected_scheme scheme-basic" \
       "option_doc 0" \
@@ -42,9 +48,10 @@ RUN apt update \
       /usr/local/texlive/texmf-local/fonts/opentype/google/notoserifcjk/ \
  && mktexlsr \
  && cd ../ \
- && rm -rf install-tl.tar.gz install-tl \
- && apt purge -y wget xz-utils libfontconfig-dev \
+ && rm -rf install-tl \
+ && apt purge -y xz-utils libfontconfig-dev \
  && apt autoremove -y \
+ && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /texsrc
