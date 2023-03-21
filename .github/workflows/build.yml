@@ -34,4 +34,4 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: latest
+          tags: ${{ steps.meta.outputs.tags }}
